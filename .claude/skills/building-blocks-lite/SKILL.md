@@ -1,5 +1,5 @@
 ---
-name: Building Blocks Lite
+name: building-blocks-lite
 description: Lean guide to create or modify blocks in boilerplate-based EDS projects.
 ---
 

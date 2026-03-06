@@ -1,5 +1,5 @@
 ---
-name: CDD Lite
+name: cdd-lite
 description: Lean content-first process for development in AEM Edge Delivery Services.
 ---
 

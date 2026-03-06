@@ -1,5 +1,5 @@
 ---
-name: Reference Search Lite
+name: reference-search-lite
 description: Quick reference search for EDS with low context cost.
 ---
 

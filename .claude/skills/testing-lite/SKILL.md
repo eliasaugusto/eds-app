@@ -1,5 +1,5 @@
 ---
-name: Testing Lite
+name: testing-lite
 description: Lean validation for changes in blocks, scripts, and styles in EDS projects.
 ---
 
