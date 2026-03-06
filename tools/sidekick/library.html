@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="EDS Sidekick Library">
+    <meta name="robots" content="noindex">
+    <base href="/">
+    <title>EDS Library</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: sans-serif;
+        background-color: #ededed;
+      }
+
+      helix-sidekick {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="https://www.aem.live/tools/sidekick/library/index.js"></script>
+    <script>
+      const library = document.createElement('sidekick-library');
+      library.config = {
+        base: '/tools/sidekick/library.json',
+        plugins: {
+          blocks: {
+            encodeImages: true,
+          },
+        },
+      };
+
+      document.body.prepend(library);
+    </script>
+  </body>
+</html>
