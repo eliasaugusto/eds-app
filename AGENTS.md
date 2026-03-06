@@ -8,6 +8,32 @@ This project is based on the https://github.com/adobe/aem-boilerplate/ project a
 
 The repository provides the basic structure, blocks, and configuration needed to run a complete site with `*.aem.live` as the backend.
 
+## Skills
+
+This project uses a lean set of local skills in `.claude/skills/`.
+
+### Discover Available Skills
+
+- Bash: `./.agents/discover-skills`
+- PowerShell (Windows): `./.agents/discover-skills.ps1`
+
+### Skill Set
+
+- `cdd-lite`: Content-first workflow before implementation
+- `building-blocks-lite`: Lean implementation guide for block development
+- `testing-lite`: Minimum validation checklist (lint, local behavior, responsive, accessibility basics)
+- `reference-search-lite`: Quick reference workflow for docs and implementation patterns
+
+### Recommended Usage Order
+
+For block and core functionality work, use this order:
+
+1. `cdd-lite`
+2. `building-blocks-lite`
+3. `testing-lite`
+
+Use `reference-search-lite` whenever you need external references from aem.live, Block Collection, or Block Party.
+
 ### Key Technologies
 - Edge Delivery Services for AEM Sites (documentation at https://www.aem.live/ – search with `site:www.aem.live` to restrict web search results)
 - Vanilla JavaScript (ES6+), no transpiling, no build steps
@@ -74,11 +100,7 @@ The repository provides the basic structure, blocks, and configuration needed to
 
 CMS authored content is a key part of every AEM Website. The content of a page is broken into sections. Sections can have default content (text, headings, links, etc.) as well as content in blocks.
 
-If no authored content exists to test against, you can create static HTML files in a `drafts/` folder at the project root. Pass `--html-folder drafts` when starting the dev server. Follow the aem markup structure and save files with `.html` or `.plain.html` extensions.
-
-Background on content and markup structure can be found at https://www.aem.live/developer/markup-sections-blocks and https://www.aem.live/developer/markup-reference respectively.
-
-You can inspect the contents of any page with `curl http://localhost:3000/path/to/page`, `curl http://localhost:3000/path/to/page.md`, and `curl http://localhost:3000/path/to/page.plain.html`
+**For development workflow:** Use the **cdd-lite** skill for content-first execution (test content, minimal content model, and inspection commands).
 
 ### Blocks
 
@@ -105,29 +127,13 @@ Use `curl` and `console.log` to inspect the HTML delivered by the backend and th
 
 Each block should be self-contained and re-useable, with CSS and JS files following the naming convention: `blockname.css`, `blockname.js`. Blocks should be responsive and accessible by default.
 
+**For creating or modifying blocks:** Use the **building-blocks-lite** skill for implementation steps and required block documentation.
+
 ## Block Creation Rules
 
-When creating a new block, you MUST perform the following steps:
+For block creation and required documentation content, follow **building-blocks-lite**.
 
-1. Define the content model (authoring structure).
-2. Implement the block JavaScript and CSS.
-3. Create documentation for the block.
-
-Block documentation must be created in:
-
-docs/blocks/{block-name}.md
-
-The documentation must include:
-
-- Block name
-- Description
-- Authoring instructions
-- Content structure (table format)
-- Expected HTML structure
-- Behavior description
-- Responsive behavior
-
-If documentation is missing, the task is considered incomplete.
+This includes mandatory steps, file paths, and documentation completeness criteria.
 
 ### Auto-Blocking
 
@@ -143,16 +149,14 @@ Pages are progressively loaded in three phases to maximize performance. This pro
 
 ## Testing & Quality Assurance
 
+For implementation validation, use **testing-lite**.
+
+It covers linting, local validation, responsive checks, accessibility basics, and performance guardrails.
+
 ### Performance
 - Follow AEM Edge Delivery performance best practices https://www.aem.live/developer/keeping-it-100
-- Images uploaded by authors are automatically optimized, all images and assets committed to git must be optimized and checked for size
-- Use lazy loading for non-critical resources (`lazy-styles.css` and `delayed.js`)
-- Minimize JavaScript bundle size by avoiding dependencies, using automatic code splitting provided by `/blocks/`
 
 ### Accessibility
-- Ensure proper heading hierarchy
-- Include alt text for images
-- Test with screen readers
 - Follow WCAG 2.1 AA guidelines
 
 ## Deployment
@@ -183,12 +187,7 @@ With this information, you can construct URLs for the preview environment (same 
 ## Troubleshooting
 
 ### Getting Help
-- Check [AEM Edge Delivery documentation](https://www.aem.live/docs/)
-- Review [Developer Tutorial](https://www.aem.live/developer/tutorial)
-- Consult [The Anatomy of a Project](https://www.aem.live/developer/anatomy-of-a-project)
-- Consider the rules in [David's Model](https://www.aem.live/docs/davidsmodel)
-- Search the web with `site:www.aem.live`
-- Search the full text of the documentation with `curl -s https://www.aem.live/docpages-index.json | jq -r '.data[] | select(.content | test("KEYWORD"; "i")) | "\(.path): \(.title)"'`
+Use **reference-search-lite** for the recommended search flow, trusted sources, and doc index queries.
 
 ## Security Considerations
 
@@ -196,7 +195,7 @@ With this information, you can construct URLs for the preview environment (same 
 - Consider that everything you do is client-side code served on the public web
 - Follow Adobe security guidelines
 - Regularly update dependencies
-- Use the .hlxignore file to prevent files from being served (same format as .gitingnore)
+- Use the .hlxignore file to prevent files from being served (same format as .gitignore)
 
 ## Contributing
 

@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SKILLS_DIR=".claude/skills"
+
+if [ ! -d "$SKILLS_DIR" ]; then
+  echo "No skills directory found at $SKILLS_DIR"
+  exit 0
+fi
+
+SKILL_FILES=$(find "$SKILLS_DIR" -name "SKILL.md" -type f | sort)
+
+if [ -z "$SKILL_FILES" ]; then
+  echo "No skills found in $SKILLS_DIR"
+  exit 0
+fi
+
+echo "Available Skills:"
+echo "=================="
+echo ""
+
+while IFS= read -r skill_file; do
+  skill_dir=$(dirname "$skill_file")
+  skill_name=$(basename "$skill_dir")
+
+  if head -n 1 "$skill_file" | grep -q '^---$'; then
+    name=$(awk '/^---$/{f++;next} f==1 && /^name:/{sub(/^name:[[:space:]]*/, "", $0); print; exit}' "$skill_file")
+    description=$(awk '/^---$/{f++;next} f==1 && /^description:/{sub(/^description:[[:space:]]*/, "", $0); print; exit}' "$skill_file")
+
+    echo "Skill: ${name:-$skill_name}"
+    echo "Path: $skill_file"
+    echo "Description: ${description:-No description}"
+  else
+    echo "Skill: $skill_name"
+    echo "Path: $skill_file"
+    echo "Description: No frontmatter detected"
+  fi
+
+  echo ""
+  echo "---"
+  echo ""
+done <<< "$SKILL_FILES"
