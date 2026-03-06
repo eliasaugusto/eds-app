@@ -105,6 +105,30 @@ Use `curl` and `console.log` to inspect the HTML delivered by the backend and th
 
 Each block should be self-contained and re-useable, with CSS and JS files following the naming convention: `blockname.css`, `blockname.js`. Blocks should be responsive and accessible by default.
 
+## Block Creation Rules
+
+When creating a new block, you MUST perform the following steps:
+
+1. Define the content model (authoring structure).
+2. Implement the block JavaScript and CSS.
+3. Create documentation for the block.
+
+Block documentation must be created in:
+
+docs/blocks/{block-name}.md
+
+The documentation must include:
+
+- Block name
+- Description
+- Authoring instructions
+- Content structure (table format)
+- Expected HTML structure
+- Behavior description
+- Responsive behavior
+
+If documentation is missing, the task is considered incomplete.
+
 ### Auto-Blocking
 
 Auto-blocking is the process of creating blocks that aren't explicitly authored into the page based on patterns in the content. See the `buildAutoBlocks` function in `scripts.js`.
