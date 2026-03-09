@@ -49,6 +49,19 @@
   gap: 14px;
 }
 
+.banner.centered .banner-inner {
+  align-items: center;
+}
+
+.banner.centered .banner-content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner.centered .banner-cta {
+  justify-self: center;
+}
+
 .banner .banner-title h1,
 .banner .banner-title h2,
 .banner .banner-title h3,

@@ -8,6 +8,7 @@
 2. Author one row using this order: `background image | title | description | cta`.
 3. Use a heading element in the title cell when possible.
 4. Add a link in the CTA cell. If styled as a button, it is preserved.
+5. Optional variation: add the `centered` class to the block to center title, description, and CTA.
 
 ## Content Structure
 
@@ -48,10 +49,21 @@ Decorated output (simplified):
 </div>
 ```
 
+Centered variation (simplified):
+
+```html
+<div class="banner centered block" data-block-name="banner">
+  <div class="banner-inner">
+    <div class="banner-content">...</div>
+  </div>
+</div>
+```
+
 ## Behavior
 - Uses first row only to build one banner.
 - Keeps authored heading/description/CTA markup when present.
 - Gracefully handles optional fields (image, description, CTA).
+- `centered` variation centers content alignment and CTA placement.
 
 ## Responsive Behavior
 - Mobile-first layout with overlayed content on image.
