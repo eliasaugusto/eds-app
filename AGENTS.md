@@ -129,11 +129,11 @@ export default async function decorate(block) {
 }
 ```
 
-Use `curl` and `console.log` to inspect the HTML delivered by the backend and the DOM nodes to be decorated before making assumptions. Remember that authors may omit or add fields to a block, so your code must handle this gracefully.
+Use `curl` (or PowerShell `Invoke-WebRequest`) and `console.log` to inspect the HTML delivered by the backend and the DOM nodes to be decorated before making assumptions. Remember that authors may omit or add fields to a block, so your code must handle this gracefully.
 
 Each block should be self-contained and re-useable, with CSS and JS files following the naming convention: `blockname.css`, `blockname.js`. Blocks should be responsive and accessible by default.
 
-**For creating or modifying blocks:** Use the **building-blocks-lite** skill for implementation steps and required block documentation.
+**For creating or modifying blocks:** Use **authoring-contract-lite** for new blocks, variants, or authored structure changes, then use **building-blocks-lite** for implementation steps and required block documentation.
 This includes mandatory steps for Sidekick assets and `tools/sidekick/library.json` registration.
 
 ### Auto-Blocking

@@ -11,7 +11,7 @@ Objective implementation guidance for blocks with a focus on consistency.
 
 Before implementation:
 - Test content is defined (CDD Lite)
-- Block content structure is defined
+- Block content structure is defined (from `authoring-contract-lite` when applicable)
 
 ## Steps
 

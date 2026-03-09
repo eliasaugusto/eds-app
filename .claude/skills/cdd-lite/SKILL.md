@@ -33,7 +33,8 @@ Do not use for:
 
 3. Implement
 - Apply changes in blocks/scripts following project patterns.
-- For a new block, create JS and CSS in `blocks/{block-name}/`.
+- For a new block or authored-structure change, run `authoring-contract-lite` before implementation.
+- Implement block files and Sidekick assets using `building-blocks-lite`.
 
 4. Validate
 - Verify in `http://localhost:3000` with the selected content.
@@ -55,6 +56,6 @@ Do not use for:
 
 - Markup sections and blocks: `https://www.aem.live/developer/markup-sections-blocks`
 - Markup reference: `https://www.aem.live/developer/markup-reference`
-- Inspect delivered page HTML: `curl http://localhost:3000/path/to/page`
-- Inspect markdown view: `curl http://localhost:3000/path/to/page.md`
-- Inspect plain HTML view: `curl http://localhost:3000/path/to/page.plain.html`
+- Inspect delivered page HTML: `curl http://localhost:3000/path/to/page` (PowerShell: `Invoke-WebRequest http://localhost:3000/path/to/page | Select-Object -ExpandProperty Content`)
+- Inspect markdown view: `curl http://localhost:3000/path/to/page.md` (PowerShell: `Invoke-WebRequest http://localhost:3000/path/to/page.md | Select-Object -ExpandProperty Content`)
+- Inspect plain HTML view: `curl http://localhost:3000/path/to/page.plain.html` (PowerShell: `Invoke-WebRequest http://localhost:3000/path/to/page.plain.html | Select-Object -ExpandProperty Content`)
