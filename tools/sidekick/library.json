@@ -1,6 +1,10 @@
 {
   "data": [
     {
+      "name": "Banner",
+      "path": "/tools/sidekick/blocks/banner.html"
+    },
+    {
       "name": "Product Grid",
       "path": "/tools/sidekick/blocks/product-grid.html"
     },

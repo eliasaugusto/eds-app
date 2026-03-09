@@ -104,6 +104,9 @@ After this skill is complete:
 
 ## Output Template
 
+Use this template as the technical, executable translation of the request before implementation.
+It must make scope, authoring structure, and fallback behavior explicit so block creation can proceed with minimal ambiguity.
+
 ### Authoring Contract
 - Block name:
 - Goal:
