@@ -20,6 +20,7 @@ This project uses a lean set of local skills in `.claude/skills/`.
 ### Skill Set
 
 - `cdd-lite`: Content-first workflow before implementation
+- `authoring-contract-lite`: Define or change block authoring contracts before implementation
 - `building-blocks-lite`: Lean implementation guide for block development
 - `testing-lite`: Minimum validation checklist (lint, local behavior, responsive, accessibility basics)
 - `reference-search-lite`: Quick reference workflow for docs and implementation patterns
@@ -29,8 +30,9 @@ This project uses a lean set of local skills in `.claude/skills/`.
 For block and core functionality work, use this order:
 
 1. `cdd-lite`
-2. `building-blocks-lite`
-3. `testing-lite`
+2. `authoring-contract-lite` (for new blocks, variants, or authored structure changes)
+3. `building-blocks-lite`
+4. `testing-lite`
 
 Use `reference-search-lite` whenever you need external references from aem.live, Block Collection, or Block Party.
 
