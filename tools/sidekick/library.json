@@ -13,6 +13,10 @@
       "path": "/tools/sidekick/blocks/testimonial.html"
     },
     {
+      "name": "Title Description",
+      "path": "/tools/sidekick/blocks/title-description.html"
+    },
+    {
       "name": "YouTube Player",
       "path": "/tools/sidekick/blocks/youtube-player.html"
     }
