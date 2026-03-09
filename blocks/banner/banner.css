@@ -14,7 +14,6 @@
   display: grid;
   align-items: end;
   overflow: hidden;
-  border-radius: 16px;
 }
 
 .banner .banner-background {
