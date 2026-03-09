@@ -5,6 +5,10 @@
       "path": "/tools/sidekick/blocks/banner.html"
     },
     {
+      "name": "Carousel",
+      "path": "/tools/sidekick/blocks/carousel.html"
+    },
+    {
       "name": "Product Grid",
       "path": "/tools/sidekick/blocks/product-grid.html"
     },
