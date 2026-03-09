@@ -36,6 +36,48 @@ For block and core functionality work, use this order:
 
 Use `reference-search-lite` whenever you need external references from aem.live, Block Collection, or Block Party.
 
+### Multi-Agent Orchestration
+
+Use a single user-facing command with staged internal roles.
+
+Command:
+- `/dev <issue-number>`
+
+Internal stages:
+1. `planner`
+- Read the issue requirements and acceptance criteria.
+- Define scope, assumptions, and implementation plan.
+- Stop if requirements are ambiguous or blocked.
+
+2. `implementer`
+- Create or use a URL-safe feature branch named `feature-{ticket}-{short-description}`.
+- Use lowercase and hyphens only. Do not use `/` in branch names.
+- Implement using the required skills (`cdd-lite`, `authoring-contract-lite` when applicable, `building-blocks-lite`).
+- Run required validation (`npm run lint`, plus local behavior checks).
+- Push branch updates.
+
+3. `reviewer`
+- Review for regressions, risks, and missing tests.
+- Validate the pre-merge checklist.
+- Decide status: keep PR as draft or mark ready for review.
+
+Gate rules:
+- If `planner` is blocked, do not continue.
+- If `implementer` fails lint or validation, do not continue to `reviewer`.
+- `reviewer` can only mark ready when checklist is fully satisfied.
+
+Expected output after `/dev <issue-number>`:
+- Implementation summary
+- Files changed
+- Validation results
+- Preview links (`.aem.page`) using a URL-safe branch token
+- Open risks and next steps
+
+Related prompt shortcuts:
+- `/review <issue-number>`: run reviewer stage only
+- `/validate <issue-number>`: run validation and checklist only
+- `/pr <issue-number>`: prepare PR description/checklist based on current branch state
+
 ### Key Technologies
 - Edge Delivery Services for AEM Sites (documentation at https://www.aem.live/ - search with `site:www.aem.live` to restrict web search results)
 - Vanilla JavaScript (ES6+), no transpiling, no build steps
@@ -170,16 +212,20 @@ For all other environments, you need to know the GitHub owner and repository nam
 
 With this information, you can construct URLs for the preview environment (same content as `localhost:3000`) and the production environment (same content as the live website, approved by authors)
 
+Branch token rule for preview URLs:
+- Use the exact branch name when it is URL-safe (recommended: `feature-{ticket}-{short-description}`).
+- If a branch contains `/`, replace `/` with `-` when composing preview URLs.
+
 - **Production Preview**: `https://main--{repo}--{owner}.aem.page/`
 - **Production Live**: `https://main--{repo}--{owner}.aem.live/`
-- **Feature Preview**: `https://{branch}--{repo}--{owner}.aem.page/`
+- **Feature Preview**: `https://{branch-token}--{repo}--{owner}.aem.page/`
 
 ### Publishing Process
-1. Push changes to a feature branch
+1. Push changes to a feature branch named `feature-{ticket}-{short-description}`
 2. AEM Code Sync automatically processes changes making them available on feature preview environment for that branch
 3. Run a PageSpeed Insights check at https://developers.google.com/speed/pagespeed/insights/?url=YOUR_URL against the feature preview URL and fix any issues. Target a score of 100
 4. Open a pull request to merge changes to `main`
-   1. in the PR description, include a link to `https://{branch}--{repo}--{owner}.aem.page/{path}` with a path to a file that illustrates the change you've made. This is the same path you have been testing with locally. WITHOUT THIS YOUR PR WILL BE REJECTED
+  1. in the PR description, include a link to `https://{branch-token}--{repo}--{owner}.aem.page/{path}` with a path to a file that illustrates the change you've made. This is the same path you have been testing with locally. WITHOUT THIS YOUR PR WILL BE REJECTED
    2. If an existing page to demonstrate your changes doesn't exist, create test content as a static html file and ask the user for help copying it to a cms content page you can link in the PR
 5. use `gh pr checks` to verify the status of code synchronization, linting, and performance tests
 6. A human reviewer will review the code, inspect the provided URL and merge the PR
