@@ -5,10 +5,6 @@
       "path": "/tools/sidekick/blocks/banner.html"
     },
     {
-      "name": "Banner",
-      "path": "/tools/sidekick/blocks/banner-centered.html"
-    },
-    {
       "name": "Product Grid",
       "path": "/tools/sidekick/blocks/product-grid.html"
     },
