@@ -11,6 +11,10 @@
     {
       "name": "Testimonial",
       "path": "/tools/sidekick/blocks/testimonial.html"
+    },
+    {
+      "name": "YouTube Player",
+      "path": "/tools/sidekick/blocks/youtube-player.html"
     }
   ]
 }
