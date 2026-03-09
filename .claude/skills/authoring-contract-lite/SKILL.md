@@ -65,6 +65,7 @@ Check:
 - If this is a new block, ensure Sidekick sample content reflects the contract in:
 	- `tools/sidekick/blocks/{block-name}.html`
 	- `tools/sidekick/blocks/{block-name}.html.plain.html`
+- If this is a variant of an existing block, map the sample to the existing Sidekick item page and keep the same top-level block group in `tools/sidekick/library.json`.
 
 ## Expected Output
 Produce:

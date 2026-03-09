@@ -24,6 +24,12 @@ For new blocks, also create Sidekick library assets by default:
 - `tools/sidekick/blocks/{block-name}.html.plain.html`
 - Add block entry in `tools/sidekick/library.json`
 
+For variants of an existing block:
+- Keep the existing block entry in `tools/sidekick/library.json` (same top-level group name)
+- Add variant samples to the existing block item page (`{block-name}.html` and `{block-name}.html.plain.html`) with additional `library-metadata` sections
+- Use clear sample names such as `Default`, `Centered`, `Compact`
+- Do not create a separate top-level library group for variants unless explicitly requested
+
 2. JavaScript
 - Export `default function decorate(block)`
 - Transform DOM in a resilient way (optional fields)
@@ -49,6 +55,12 @@ When creating a new block, you MUST complete all of the following:
 2. Implement block JavaScript and CSS
 3. Create block documentation
 4. Create Sidekick library item files and register the block in `tools/sidekick/library.json`
+
+When creating or updating a block variant, you MUST complete all of the following:
+
+1. Add or update variant sample(s) in the existing Sidekick block item page
+2. Keep a single top-level block group in `tools/sidekick/library.json`
+3. Ensure variant names in `library-metadata` are clear and author-friendly
 
 Block documentation path:
 

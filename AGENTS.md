@@ -178,6 +178,13 @@ Each block should be self-contained and re-useable, with CSS and JS files follow
 **For creating or modifying blocks:** Use **authoring-contract-lite** for new blocks, variants, or authored structure changes, then use **building-blocks-lite** for implementation steps and required block documentation.
 This includes mandatory steps for Sidekick assets and `tools/sidekick/library.json` registration.
 
+Sidekick variant standard:
+- New block: add one top-level entry in `tools/sidekick/library.json` and one item page pair:
+  - `tools/sidekick/blocks/{block-name}.html`
+  - `tools/sidekick/blocks/{block-name}.html.plain.html`
+- Variant of an existing block: keep the same top-level block group in `tools/sidekick/library.json` and add the variant sample inside the existing block item page using additional `library-metadata` sections (for example: `Default`, `Centered`).
+- Do not create separate top-level groups for variants of the same block unless explicitly requested.
+
 ### Auto-Blocking
 
 Auto-blocking is the process of creating blocks that aren't explicitly authored into the page based on patterns in the content. See the `buildAutoBlocks` function in `scripts.js`.
