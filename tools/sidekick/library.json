@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "name": "Banner/Default",
+      "name": "Banner",
       "path": "/tools/sidekick/blocks/banner.html"
     },
     {
-      "name": "Banner/Centered",
+      "name": "Banner",
       "path": "/tools/sidekick/blocks/banner-centered.html"
     },
     {
