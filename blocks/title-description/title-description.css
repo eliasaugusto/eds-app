@@ -1,0 +1,38 @@
+.title-description > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.title-description .title-description-item {
+  margin: 0;
+}
+
+.title-description .title-description-card {
+  display: grid;
+  gap: 10px;
+}
+
+.title-description .title-description-title h1,
+.title-description .title-description-title h2,
+.title-description .title-description-title h3,
+.title-description .title-description-title h4,
+.title-description .title-description-title h5,
+.title-description .title-description-title h6 {
+  margin: 0;
+}
+
+.title-description .title-description-description p {
+  margin: 0;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+@media (width >= 900px) {
+  .title-description > ul {
+    gap: 28px;
+  }
+}
