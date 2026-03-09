@@ -46,8 +46,10 @@ Do not use when:
 ## Search Shortcuts
 
 - Prefer web search scoped to AEM docs: `site:www.aem.live`
-- Search doc index content directly:
+- Search doc index content directly (Unix shell):
 `curl -s https://www.aem.live/docpages-index.json | jq -r '.data[] | select(.content | test("KEYWORD"; "i")) | "\(.path): \(.title)"'`
+- Search doc index content directly (PowerShell):
+`(Invoke-RestMethod https://www.aem.live/docpages-index.json).data | Where-Object { $_.content -match 'KEYWORD' } | ForEach-Object { "{0}: {1}" -f $_.path, $_.title }`
 
 ## Expected Output
 

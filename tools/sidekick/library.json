@@ -3,6 +3,10 @@
     {
       "name": "Product Grid",
       "path": "/tools/sidekick/blocks/product-grid.html"
+    },
+    {
+      "name": "Testimonial",
+      "path": "/tools/sidekick/blocks/testimonial.html"
     }
   ]
 }
